@@ -1,0 +1,451 @@
+
+/*body {*/
+    /*background-image:  url("../images/concrete_seamless.png");*/
+    /*background-repeat: repeat;*/
+    /*background-attachment: fixed;*/
+/*}*/
+
+.filterBox{
+    width: 87%;
+}
+
+.keyword-seach-index{
+    margin-top: 0%;
+}
+
+.movie-search-index{
+    margin-top: 0%;
+}
+
+.keyword-movie-details{
+    margin-top: 0%;
+}
+
+.movie-details{
+    margin-top: 0%;
+}
+
+.celebTrend {
+    margin-top: 14%;
+}
+
+.noOfMoviesTogetherRed{
+    background-color: red;
+}
+.noOfMoviesTogetherGreen{
+    background-color: green;
+}
+
+.card-button{
+    display: inline-block;
+}
+
+.celeb-card-details-modal{
+    display: inline-block;
+    padding-left: 6%;
+    padding-top: 2%;
+    text-align: center;
+}
+
+
+.celeb-movie-keyword-card-url{
+    display: inline-block;
+    font-weight: bold;
+}
+
+.celeb-keyword-movie-details{
+    margin-top: 0%;
+}
+
+.celeb-keyword-movie-details-searchBox{
+    width: 80%;
+    border-radius: 20px;
+}
+
+.celeb-keyword-movie-details-celeb-image{
+    width: 40%;
+    border-radius: 20px;
+    margin-top: 3%;
+}
+
+.celeb-keyword-movie-profile{
+    border-style: outset;
+    border-width: medium;
+    background-color: ghostwhite;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.filter-options{
+    border-style: ridge;
+    border-width: medium;
+    border-radius: 20px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+
+.ad-box{
+    border-style: ridge;
+    border-width: medium;
+    border-radius: 20px;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    height: 280px;
+}
+
+.movie-search-list{
+    display: inline-block;
+}
+
+.celeb-search-list{
+    display: inline-block;
+}
+
+.celeb-search-list-img{
+    max-height: 3em;
+    border-radius:1em;
+}
+
+.movie-details-cast{
+    border-style: outset;
+    border-width: medium;
+    background-color: ghostwhite;
+    border-radius: 20px;
+    height: 20em;
+    max-width:20em;
+    text-align: center;
+}
+
+.movie-details-cast-block{
+    width: 100%;
+}
+
+.movie-details-cast-person-img{
+    border-radius: 20px;
+}
+
+.movie-details-keywords{
+    border-style: outset;
+    border-width: medium;
+    background-color: ghostwhite;
+    border-radius: 20px;
+    /* max-height: 10em; */
+    max-width: 20em;
+    text-align: center;
+}
+
+.movie-details-keywords-block{
+    width: 100%;
+}
+
+.trailer-movie-details{
+    width: 60%;
+    height: 30em;
+}
+
+.trailer-modal {
+    width: 100%;
+    height: 25em;
+}
+
+.dropdown-menu {
+    max-height: 350px;
+    overflow-y: auto;
+    cursor: pointer;
+    padding-left: 10px;
+    min-width: 270px !important;
+ }
+
+.card-celeb{
+    text-align: center;
+}
+
+
+.card-celeb-button{
+    margin-bottom: 5%;
+}
+
+.celebs-card-together-none{
+    order-style: outset;
+    border-width: medium;
+    background-color: #F70727;
+    border-radius: 20px;
+    padding-left: 17%;
+    font-weight: bold;
+}
+
+.celebs-card-together-ok{
+    order-style: outset;
+    border-width: medium;
+    background-color: #75F975;
+    border-radius: 20px;
+    padding-left: 17%;
+    font-weight: bold;
+}
+
+.empty-box{
+    width: 100%;
+    min-height: 10px;
+    display: -webkit-flex;
+    display: flex;
+    display: -moz-box;
+}
+
+a {
+    text-decoration:none !important;
+}
+
+a:focus, a:hover {
+    border-style: hidden;
+}
+
+.reveal-animation {
+    transition: all 1s;
+}
+
+.reveal-animation:hover {
+    opacity: 0.5;
+    box-shadow: 0px 0px 15px 5px #2BD1FF;
+}
+
+.modal-content {
+    width: 100%;
+    text-align: center;
+}
+
+.celeb-index-title{
+    margin-left: 2%;
+}
+
+.keyword-card-switch{
+    margin-top: 15px;
+    margin-left: 50px !important;
+}
+
+.loadingKeywordCard{
+    margin-left: 20px;
+}
+
+.loadingCelebCard{
+    margin-left: 20px;
+}
+
+.loadingKeywordCardBtnHidden{
+    display: none;
+    margin-left: 20px;
+}
+
+.loadingKeywordCardBtnVisible{
+    display: block;
+    margin-left: 20px;
+}
+
+.celeb-sm-card{
+    border-radius: 50px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: #004A7F; -webkit-box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #0094FF; -webkit-box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #004A7F; -webkit-box-shadow: 0 0 3px #004A7F; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #004A7F; -moz-box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #0094FF; -moz-box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #004A7F; -moz-box-shadow: 0 0 3px #004A7F; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #0094FF; box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+}
+
+@keyframes glowing {
+  0% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #0094FF; box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #004A7F; box-shadow: 0 0 3px #004A7F; }
+}
+
+.menu-toggle{
+    margin-top:20%;
+    margin-left:-40px;
+    z-index:1000;
+    position:fixed;
+    font-size: large;
+    background-color: #004A7F;
+    color: #FFFFFF;
+    text-decoration: none;
+    -webkit-animation: glowing 1500ms infinite;
+    -moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
+}
+
+.menu-toggle:hover{
+    color: #FFFFFF;
+}
+
+.menu-toggle:focus{
+    color: #FFFFFF;
+}
+
+.inline {
+    display: inline;
+}
+
+@media (min-width: 0px) and (max-width: 350px) {
+    .celebTrend {
+        margin-top: 57%;
+        margin-left: 10%;
+    }
+
+    .trailer-modal {
+        width: 100%;
+        height: 25em;
+    }
+
+    .trailer-movie-details {
+        width: 100%;
+        height: 20em;
+    }
+
+    .keyword-card-list{
+        margin-left: 10%;
+    }
+
+    .keyword-card-list-loading{
+        margin-left: 30%;
+    }
+
+    .list-loading{
+        margin-left: 30%;
+    }
+
+    .movie-card-list{
+        margin-left: 10%;
+    }
+
+    .movie-card-list-loading{
+        margin-left: 30%;
+    }
+
+    .celeb-index-title{
+        margin-left: 17%;
+    }
+
+    .dropdown-menu {
+        min-width: 260px !important;
+    }
+
+    .modal-content {
+        text-align: center;
+        /*margin-left: 10%;*/
+    }
+
+    .text-center{
+    text-align: center;
+    }
+
+}
+
+@media (min-width: 351px) and (max-width :599px) {
+    .celebTrend {
+        margin-top: 42%;
+        margin-left: 10%;
+    }
+
+    .trailer-modal {
+        width: 100%;
+        height: 25em;
+    }
+
+    .trailer-movie-details {
+        width: 100%;
+        height: 20em;
+    }
+
+    .keyword-card-list{
+        margin-left: 10%;
+    }
+
+    .keyword-card-list-loading{
+        margin-left: 30%;
+    }
+
+    .movie-card-list{
+        margin-left: 10%;
+    }
+
+    .movie-card-list-loading{
+        margin-left: 30%;
+    }
+
+    .celeb-index-title{
+        margin-left: 17%;
+    }
+
+    .dropdown-menu {
+        min-width: 260px !important;
+    }
+
+    .modal-content {
+        text-align: center;
+        /*margin-left: 10%;*/
+    }
+
+    .text-center{
+    text-align: center;
+}
+
+}
+
+@media (max-width: 700px) and (orientation:landscape) {
+    .celebTrend {
+        margin-top: 17%;
+        margin-left: 13%;
+    }
+
+    .celeb-index-title{
+        margin-left: -10%;
+    }
+
+    .heading-center{
+        margin-left: 30%;
+    }
+
+    .keyword-card-list{
+        margin-left: 30%;
+    }
+
+    .keyword-card-list-loading{
+        margin-left: 50%;
+    }
+
+    .movie-card-list{
+        margin-left: 30%;
+    }
+
+    .movie-card-list-loading{
+        margin-left: 50%;
+    }
+
+    .modal-content {
+        text-align: center;
+        /*margin-left: 10%;*/
+    }
+
+    .text-center{
+        text-align: center;
+    }
+
+}
+
+

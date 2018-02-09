@@ -1,0 +1,17 @@
+<div class="col-lg-3 col-md-3 col-sm-3 ">
+    <md-content>
+        <md-card>
+            <img ng-click="addCeleb()" ng-src='{{image}}' ng-if='image' class="md-card-image reveal-animation" alt={{header}}>
+            <md-card-content>
+                <h2 ng-click="addCeleb()" class="md-title">{{header}}</h2>
+                <md-progress-circular  class="loadingCelebCard md-hue-2" ng-if="isLoadingCheckTogetherForAll" md-mode="indeterminate"></md-progress-circular>
+                <div ng-if="!(selectedCelebs.indexOf(celeb)>-1)&&selectedCelebs.length>0&&togetherCheckToggle" ng-class="noOfMoviesTogether > 0 ? 'celebs-card-together-ok' : 'celebs-card-together-none'">
+                    <p ng-if="noOfMoviesTogether&&!isLoadingCheckTogetherForAll"> Movies : {{ noOfMoviesTogether }} </p>
+                </div>
+            </md-card-content>
+            <md-action-bar layout="row" layout-align="center">
+                <button ng-if="!(selectedCelebs.indexOf(celeb)>-1)" class="btn btn-default card-celeb-button" ng-click="open()">Details</button>
+            </md-action-bar>
+        </md-card>
+    </md-content>
+</div>

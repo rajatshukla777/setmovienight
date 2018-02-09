@@ -1,0 +1,60 @@
+<div>
+    <!--<pre>{{celebKeyWordMovies | json}}</pre>-->
+    <br/>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div ng-repeat="item in selectedCelebsDetails">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="celeb-keyword-movie-profile">
+                    <img ng-src='https://image.tmdb.org/t/p/w185{{item.profile_path}}' class="celeb-keyword-movie-details-celeb-image" alt={{item.name}}>
+                    <h4>{{item.name}}</h4>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+    <div ng-if="!celebTogetherMoviesEmpty" class="col-lg-12 col-md-12 col-sm-12 ">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5 filter-options">
+                <h3>Filter Rating</h3>
+                <rating ng-show="data.cb2" ng-model="voteAverage" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly && data.cb2">{{overStar}}</span>
+                <md-switch ng-model="data.cb2" aria-label="Switch 2">
+                </md-switch>
+                <h3>Filter keywords</h3>
+                <input type="text" ng-model="keyword" class="form-control celeb-keyword-movie-details-searchBox" placeholder="Enter Keyword ...">
+                <md-switch ng-model="data.cb1" aria-label="Switch 1">
+                    Details for All
+                </md-switch>
+            </div>
+        </div>
+    </div>
+    <h1 class="celeb-index-title">Movies</h1>
+    <md-progress-circular ng-if="isLoading"  class="md-hue-2 list-loading" md-mode="indeterminate"></md-progress-circular>
+    <!--<pre>{{celebTogetherMovies|json}}</pre>-->
+    <div  ng-style="{'margin-left':'10%'}" ng-if="celebTogetherMoviesEmpty">
+        <h2>
+            No Movies Found !
+        </h2>
+    </div>
+    <div ng-if="!celebTogetherMoviesEmpty" ng-repeat="movie in celebTogetherMovies| filter:{keywords:{name: keyword}} | filter:rateFilter(voteAverage) | orderBy:'-release_date'">
+        <!--<pre>{{movie|json}}</pre>-->
+        <keyword-card header="movie.original_title"
+                      image="https://image.tmdb.org/t/p/w185{{movie.poster_path}}"
+                      id="movie.id"
+                      celeb-id=""
+                      celeb-profile-path=""
+                      celeb-name=""
+                      details-toggle="data.cb1"
+                      together-flag="togetherFlag"
+                      trailer="movie.trailer"
+                      vote-average="movie.vote_average"
+                      budget="movie.budget"
+                      revenue="movie.revenue"
+                      body="movie.keywords"
+                      release-date="movie.release_date">
+        </keyword-card>
+        <div ng-if="($index+1)%4===0" class="empty-box">
+            &nbsp;
+        </div>
+    </div>
+</div>

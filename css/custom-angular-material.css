@@ -1,0 +1,68 @@
+/*angular material celeb-movies*/
+md-card {
+    /*min-height: 150px;
+    max-width: 200px;*/
+    min-height: 9.3em;
+    max-width: 12.5em;
+}
+
+md-card>:not(md-card-content) img, md-card>img {
+    /*max-height: 270px;
+    max-width: 200px;*/
+    max-height: 16.8em;
+    max-width: 12.5em;
+}
+
+md-content.autocomplete {
+    /*min-height: 200px;*/
+    z-index: 1;
+    position: fixed;
+    width: 77%;
+    top: 0%;
+    border-style: ridge;
+    border-width: medium;
+    border-radius: 20px;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.md-title, .md-toolbar-tools {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.md-chips{
+    max-height: 5.5em;
+    overflow-y: auto;
+}
+
+.md-chips .md-chip {
+    height: 5em;
+}
+
+.md-chips md-chip {
+    height: 50px !important;
+}
+
+.md-chips .md-chip-input-container {
+    width: 23%;
+}
+
+.md-virtual-repeat-container {
+    width: 250px !important;
+    height: 125px !important;
+}
+
+md-switch {
+    height: 1em;
+}
+
+md-switch .md-container {
+    cursor: pointer;
+}
+
+md-content {
+    background-color: white;
+}
+
+

@@ -1,0 +1,1 @@
+[26-May-2015 03:00:22 America/New_York] PHP Fatal error:  Out of memory (allocated 2883584) (tried to allocate 3072 bytes) in /home/setmbgcd/vendor/symfony/finder/Symfony/Component/Finder/Adapter/AbstractFindAdapter.php on line 37

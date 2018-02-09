@@ -1,0 +1,14 @@
+<div class="col-lg-3 col-md-3 col-sm-3 movie-card-list">
+    <md-content>
+        <md-card>
+            <a ng-href="#/moviesDetails/{{id}}">
+                <img ng-src='{{image}}' ng-if='image' class="md-card-image reveal-animation" alt="{{header}} ">
+            </a>
+            <md-card-content>
+                <a ng-href="#/moviesDetails/{{id}}">
+                    <h2 class="md-title">{{header}}</h2>
+                </a>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</div>

@@ -1,0 +1,61 @@
+<div>
+    <md-content layout-padding class="autocomplete">
+        <!--<md-chips ng-model="selectedCelebs"
+                  md-autocomplete-snap md-require-match
+                  readonly="data.cb1">-->
+        <md-chips ng-model="selectedCelebs"
+                  md-autocomplete-snap md-require-match>
+            <md-autocomplete
+                    md-selected-item="selectedItem"
+                    md-search-text="searchText"
+                    md-items="item in querySearch(searchText)"
+                    md-item-text="item.name"
+                    placeholder="Enter name or select below">
+                <img ng-if="item.profile_path" ng-src="https://image.tmdb.org/t/p/w45/{{item.profile_path}}" class="celeb-search-list-img celeb-search-list" alt="{{item.name}}" />
+                <span ng-if="!item.profile_path" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span md-highlight-text="searchText" class="celeb-search-list">{{item.name}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+                <span>
+                    <img ng-if="$chip.profile_path" ng-src="https://image.tmdb.org/t/p/w45/{{$chip.profile_path}}" class="celeb-search-list-img celeb-search-list"/>
+                    <span ng-if="!$chip.profile_path" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <strong class="celeb-search-list">{{$chip.name}}</strong>
+                </span>
+            </md-chip-template>
+        </md-chips>
+        <br/>
+        <div class="inline">
+            <button ng-if="selectedCelebs.length > 1" class="btn btn-default" ng-click="checkWorkedTogether()">Movies Together</button>
+            <button ng-if="selectedCelebs.length" class="btn btn-default" ng-click="getCelebMovies()">Movies</button>
+            <!--<md-progress-circular ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>-->
+        </div>
+       <md-switch class="inline" ng-if="selectedCelebs.length" ng-model="data.cb1" aria-label="Switch 1" ng-change="checkMoviesTogetherForAll()">
+            Movies with All
+        </md-switch>
+        <!--<md-progress-circular  class="md-hue-2" ng-if="isLoadingCheckTogetherForAll" md-mode="indeterminate"></md-progress-circular>-->
+    </md-content>
+    <div class="celebTrend">
+        <h1 class="celeb-index-title">Trending</h1>
+        <div infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='0'>
+            <!--<pre>{{celebTrendList|json}}</pre>-->
+            <div ng-if="celebTrendList" ng-repeat="celeb in celebTrendList">
+                <celebs-card
+                    celeb="celeb"
+                    header="celeb.name"
+                    image="https://image.tmdb.org/t/p/w185{{celeb.profile_path}}"
+                    body="celeb.name"
+                    id="celeb.id"
+                    selected-celebs="selectedCelebs"
+                    no-of-movies-together="celeb.noOfMoviesTogether"
+                    together-check-toggle="data.cb1"
+                    is-loading-check-together-for-all="isLoadingCheckTogetherForAll">
+                </celebs-card>
+                <div ng-if="($index+1)%4===0" class="empty-box">
+                    &nbsp;
+                </div>
+            </div>
+            <!--<md-button>Loading ...</md-button>-->
+            <md-progress-circular  class="md-hue-2 list-loading" ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>
+        </div>
+    </div>
+</div>

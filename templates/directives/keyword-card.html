@@ -1,0 +1,56 @@
+<div class="col-lg-3 col-md-3 col-sm-3 keyword-card-list">
+    <!--<div ng-class="detailsToggle===true ? 'movie-keyword-card-open' : 'movie-keyword-card-close' || togetherFlag===false ? 'movie-keyword-card-celeb-close' : '' ">-->
+        <md-content>
+            <md-card>
+                <a ng-href="#/moviesDetails/{{id}}">
+                    <img ng-src='{{image}}' class="md-card-image reveal-animation" alt="{{header}}">
+                </a>
+                <md-card-content>
+                    <div>
+                        <a ng-href="#/moviesDetails/{{id}}">
+                            <h3 class="md-title">{{header}}</h3>
+                        </a>
+                    </div>
+                    <div class="card-celeb"><img ng-src='{{celebProfilePath}}' ng-if='celebProfilePath;togetherFlag' class="celeb-sm-card" alt="{{celebid}}"></div>
+                    <div class="card-celeb" ng-if='togetherFlag'> {{celebName}}</div>
+                    <md-switch class="keyword-card-switch" ng-if="!detailsToggle" ng-model="data.cb2" aria-label="Switch 2">
+                    </md-switch>
+                    <div ng-if="detailsToggle||data.cb2">
+                        <div ng-style="{'font-weight':'bold'}">Rating: {{voteAverage}}</div>
+                        <div ng-style="{'font-weight':'bold'}">Release: {{releaseDate}}</div>
+                        <div ng-style="{'font-weight':'bold'}" id="keywords">
+                            Keywords:
+                            <div ng-repeat="keyword in body track by $index" class="celeb-movie-keyword-card-url reveal-animation">
+                                <a ng-if="$index <= body.length-2 && keyword.name!=='none'" ng-href="#/keywordMovieDetails/{{keyword.id}}">
+                                    {{keyword.name}},&nbsp;
+                                </a>
+                                <a ng-if="$index === body.length-1 && keyword.name!=='none'" ng-href="#/keywordMovieDetails/{{keyword.id}}">
+                                    {{keyword.name}}
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <br/>
+                            <div class="card-button">
+                                <div ng-class="{loadingKeywordCardBtnVisible: budget < 0, loadingKeywordCardBtnHidden: budget >= 0}">
+                                    <md-progress-circular  class="loadingKeywordCard md-hue-2" ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>
+                                </div>
+                                <button ng-if="budget&&revenue&&!gross" class="btn btn-default" ng-click="calGross()">Gross</button>
+                                <md-switch ng-if="budget&&revenue&&gross" ng-model="data.cb1" aria-label="Switch 1">
+                                    Gross
+                                </md-switch>
+                            </div>
+                            <div ng-if="trailer" class="card-button">
+                                <button class="btn btn-default" ng-click="openTrailer()">Trailer</button>
+                            </div>
+                        </div>
+                        <br/>
+                        <div ng-show="data.cb1" id="{{id}}" ng-style="loss === true && {'fill': 'red'} ||
+                          {'fill': 'green'}">
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+    <!--</div>-->
+</div>

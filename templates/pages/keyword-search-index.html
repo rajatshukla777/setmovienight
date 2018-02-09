@@ -1,0 +1,66 @@
+<div class="keyword-seach-index">
+    <!--<md-progress-circular ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>-->
+    <div>
+        <h1 ng-style="{'margin-left': '30px'}" title="Keywords">Trending Movie Keywords</h1>
+    </div>
+
+    <div id="search-celeb">
+        <div class='container-fluid'>
+            <!--<pre>Model: {{keywordSelected | json}}</pre>-->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 filter-options">
+                        <h3>Search Keyword</h3>
+                        <input type="text" ng-model="keywordSelected" class="form-control celeb-keyword-movie-details-searchBox" placeholder="Enter keyword..." typeahead-on-select="onSelect($item, $model, $label)"  typeahead="item as item.name for item in getKeywords($viewValue)" typeahead-template-url="templates/directives/keyword-list.html" typeahead-loading="loadingKeywords">
+                        <i ng-show="loadingKeywords" class="glyphicon glyphicon-refresh"></i>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 filter-options">
+                        <h3>Filter keywords</h3>
+                        <input type="text" ng-model="keyword" class="form-control celeb-keyword-movie-details-searchBox" placeholder="Enter Keyword ...">
+                        <md-switch ng-model="data.cb1" aria-label="Switch 1">
+                            Details for All
+                        </md-switch>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div infinite-scroll='nextTrendMoviePage()' infinite-scroll-disabled='busy' infinite-scroll-distance='0'>
+            <!--<div ng-if="movieTrendList" ng-repeat="movie in movieTrendList| filter:{keywords:{name: keyword}} | filter:rateFilter(voteAverage) | orderBy:'-vote_average' ">-->
+            <div ng-if="movieTrendList" ng-repeat="movie in movieTrendList| filter:{keywords:{name: keyword}}">
+                <!--<pre>{{movie|json}}</pre>-->
+                <keyword-card header="movie.original_title"
+                              image="https://image.tmdb.org/t/p/w185{{movie.poster_path}}"
+                              id="movie.id"
+                              celeb-id=""
+                              celeb-profile-path=""
+                              celeb-name=""
+                              details-toggle="data.cb1"
+                              together-flag="togetherFlag"
+                              trailer="movie.trailer"
+                              vote-average="movie.vote_average"
+                              budget="movie.budget"
+                              revenue="movie.revenue"
+                              body="movie.keywords"
+                              release-date="movie.release_date">
+                </keyword-card>
+                <div ng-if="($index+1)%4===0" class="empty-box">
+                    &nbsp;
+                </div>
+            </div>
+            <!--<md-button ng-if="isLoading">Loading ...</md-button>-->
+            <div class="empty-box">
+                &nbsp;
+            </div>
+            <md-progress-circular class="md-hue-2 keyword-card-list" ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,38 @@
+<div class="movie-search-index">
+    <div>
+        <h1 ng-style="{'margin-left': '30px'}" title="Movies">Movies</h1>
+    </div>
+
+    <div id="search-celeb">
+        <div class='container-fluid'>
+           <!-- <pre>Model: {{movieSelected | json}}</pre>-->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <input type="text" ng-model="movieSelected" placeholder="Search for Movie Title..." class="form-control">
+                    </div>
+                </div>
+                <i ng-show="loadingKeywords" class="glyphicon glyphicon-refresh"></i>
+            </div>
+        </div>
+    </div>
+
+    <!--<pre>
+        {{movies | json}}
+    </pre>-->
+    <br/>
+    <md-progress-circular  class="md-hue-2 movie-card-list-loading" ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>
+    <div ng-if="movies" ng-repeat="movie in movies">
+        <a ng-href="#/moviesDetails/{{movie.id}}">
+            <movie-card header="movie.original_title"
+                                image="https://image.tmdb.org/t/p/w154{{movie.poster_path}}"
+                                body="movie.original_title"
+                                id="movie.id">
+            </movie-card>
+            <div ng-if="($index+1)%4===0" class="empty-box">
+                &nbsp;
+            </div>
+        </a>
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="modal-title">Known For</h3>
+</div>
+<div>
+    <div ng-repeat="item in items" class="celeb-card-details-modal">
+        <div>
+            <a ng-href="#/moviesDetails/{{item.id}}" ng-click="ok()">
+                <img  ng-src="https://image.tmdb.org/t/p/w92{{item.poster_path}}">
+            </a>
+        </div>
+        <div>
+            <a ng-href="#/moviesDetails/{{item.id}}" ng-click="ok()">
+                {{item.original_title}}
+            </a>
+            <br/><br/>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>

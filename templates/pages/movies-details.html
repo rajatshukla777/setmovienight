@@ -1,0 +1,76 @@
+<div class="movie-details text-center">
+    <md-progress-circular  class="md-hue-2" ng-if="isLoading" md-mode="indeterminate"></md-progress-circular>
+    <!--<pre>Model: {{movie | json}}</pre>-->
+    <h1>{{movie.original_title}}</h1>
+    <carousel interval="interval">
+        <slide ng-repeat="item in movie.images.backdrops" ng-if="$index < 7" active="slide.active">
+            <img ng-src="https://image.tmdb.org/t/p/w780{{item.file_path}}" style="margin:auto;">
+        </slide>
+    </carousel>
+    <br/>
+    <h2 ng-if="movie.budget>0&&movie.revenue>0">Box Office</h2>
+    <div ng-show="movie.budget>0&&movie.revenue>0" id="gross" ng-style="loss === true && {'fill': 'red'} ||
+                  {'fill': 'green'}">
+    </div>
+    <div>
+        <h3>Release Date</h3>
+        <div>{{movie.release_date}}</div>
+    </div>
+    <h2 ng-if="movie.vote_average>0">Rating</h2>
+    <div ng-show="movie.vote_average>0" id="rating" ng-style="good === false && {'fill': 'red'} ||
+                  {'fill': 'green'}">
+    </div>
+    <div>
+        <h3>Overview</h3>
+        <div>{{movie.overview}}</div>
+    </div>
+    <div>
+        <h3>Cast</h3>
+        <md-content>
+            <md-list class="col-lg-3 col-md-3 col-sm-3"  ng-repeat="item in movie.credits.cast">
+                <!--<md-subheader class="md-no-sticky">Cast</md-subheader>-->
+                <md-list-item class="movie-details-cast">
+                    <div class="movie-details-cast-block">
+                        <div>
+                            <a ng-href="#/CelebKeywordMovieDetails/{{item.id}}">
+                                <img ng-src="https://image.tmdb.org/t/p/w92{{item.profile_path}}" class="movie-details-cast-person-img" alt="{{item.name}}" />
+                            </a>
+                        </div>
+                        <div>
+                            <a ng-href="#/CelebKeywordMovieDetails/{{item.id}}">
+                                <h4 ng-style="{'line-height':'1em'}">{{ item.name }}</h4>
+                            </a>
+                            <h5 ng-style="{'line-height':'1em','color': 'grey'}">{{ item.character }}</h5>
+                        </div>
+                    </div>
+                </md-list-item>
+                <div ng-if="($index+1)%4===0" class="empty-box">
+                    &nbsp;
+                </div>
+            </md-list>
+        </md-content>
+    </div>
+    <div>
+        <h3>Keywords</h3>
+        <md-content>
+            <md-list class="col-lg-3 col-md-3 col-sm-3"  ng-repeat="item in movie.keywords.keywords">
+                <!--<md-subheader class="md-no-sticky">Cast</md-subheader>-->
+                <md-list-item class="movie-details-keywords">
+                    <div class="movie-details-keywords-block">
+                        <a ng-href="#/keywordMovieDetails/{{item.id}}">
+                            <h4 ng-style="{'line-height':'1em'}">{{ item.name }}</h4>
+                        </a>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+    <div ng-if="videoUrl">
+        <h3>Trailer</h3>
+        <div ng-style="{'text-align':'center'}">
+           <iframe class="trailer-movie-details"
+                    ng-src="{{videoUrl}}">
+           </iframe>
+        </div>
+    </div>
+</div>
